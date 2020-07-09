@@ -1,15 +1,9 @@
 package com.rsk
 
 
-class Meeting(val meetingName: String) {
-    /*
-    constructor(meetingName: String){
-        this.meetingName = meetingName
-    }
-*/
-    private val logger = Logger()
+class Meeting(val meetingName: String, val location: Location = Location("")) {
 
-//    val meetingName: String
+    private val logger = Logger()
 
     fun addParticipant(participant: Participant) {
         if (verifyParticipant(participant))
@@ -24,4 +18,8 @@ class Meeting(val meetingName: String) {
     protected fun verifyMeeting() {
 
     }
+}
+
+class Location(val address: String){
+
 }
