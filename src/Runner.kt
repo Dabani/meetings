@@ -1,19 +1,16 @@
 package com.rsk
 
 fun main() {
-    val meeting = Meeting ("Review", Location("Kigali"))
+    val meeting = Meeting ("Review", UkAddress("Remera", "Rukiri I", "Kigali", "Gasabo","2020"))
+    val review = PersonalReview("Review Meeting", Participant(Name("Alice"), ""), listOf(), Room("Room I"))
 
-    println("Created: $meeting with name ${meeting.meetingName} at ${meeting.location}")
+    println("Created: $review with name ${review.meetingName} at ${review.location}")
+
+    review.closeReview()
+
     val name = Name("Joseph")
     val participant = Participant(name, "Joseph@You.com")
-    /*
-    participant.name = name
-    participant.email = "Joseph@You.com" */
 
     meeting.addParticipant(participant)
-    // meeting.meetingName = "Review"
-    // meeting.verifyParticipant("Joseph") => not accessible
-    // meeting.verifyMeeting() => not accessible
-    // meeting.logger
 
 }
