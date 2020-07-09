@@ -2,7 +2,7 @@ package com.rsk
 
 open class Location
 
-class Room(roomName: String) : Location()
+class Room(val roomName: String) : Location()
 
 class UkAddress(
         val firstLine: String,

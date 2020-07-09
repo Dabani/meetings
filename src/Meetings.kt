@@ -1,9 +1,11 @@
 package com.rsk
 
 
-open class Meeting(val meetingName: String, val location: Location = Location()) {
+open class Meeting(val meetingName: String, open val location: Location = Location()) {
 
     private val logger = Logger()
+
+    open val locationName = ""
 
     fun addParticipant(participant: Participant) {
         if (verifyParticipant(participant))
