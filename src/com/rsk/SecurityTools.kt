@@ -1,5 +1,6 @@
 package com.rsk
 
+import ConsoleOutputStrategy
 import Providers
 import com.rsk.security.*
 
@@ -61,7 +62,7 @@ fun main(args: Array<String>) {
         }
 
         "providers" -> {
-            Providers().run()
+            Providers(ConsoleOutputStrategy()).run()
         }
     }
 }

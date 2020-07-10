@@ -4,7 +4,7 @@ import java.security.Security
 
 class ProviderDetails(val providerName: String, val name: String)
 
-class Providers {
+class Providers(private val outputStrategy: OutputStrategy) {
 
     private val filter: String by argument()
 
@@ -24,20 +24,20 @@ class Providers {
     }
 
     private fun display(provider: Provider) {
-        println(provider.name)
+        outputStrategy.write(provider.name)
 
-        println("------------------------------------------------------------------------------------------")
+        outputStrategy.writeHeader()
 
         provider.entries.forEach { entry ->
-            println("\t ${entry.key}, ${entry.value}")
+            outputStrategy.write("\t ${entry.key}, ${entry.value}")
         }
 
-        println("------------------------------------------------------------------------------------------")
+        outputStrategy.writeFooter()
 
     }
 
     private fun display(message: String) {
-        println(message)
+        outputStrategy.write(message)
     }
 
     private fun getProviders(): List<Provider> {
