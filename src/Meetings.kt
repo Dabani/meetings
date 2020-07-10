@@ -1,13 +1,16 @@
 package com.rsk
 
+import java.nio.file.Paths
 
-open class Meeting(val meetingName: String, open val location: Location = Location()) {
 
-    private val logger = Logger()
+open class Meeting(val meetingName: String, open val location: Location, val logger: Logger) {
+
+//    private val logger : Logger = FileLogger(Paths.get("/some/file.log"))
 
     open val locationName = ""
 
     fun addParticipant(participant: Participant) {
+        logger.debug("Participant added")
         if (verifyParticipant(participant))
             println("Added: \n name: ${participant.participantName}, email: ${participant.canonicalEmail}")
     }
@@ -18,6 +21,6 @@ open class Meeting(val meetingName: String, open val location: Location = Locati
     }
 
     protected open fun verifyMeeting() {
-        println("Review: verify meeting")
+        println("Meeting: verify meeting")
     }
 }
