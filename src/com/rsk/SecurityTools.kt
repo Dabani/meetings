@@ -12,17 +12,19 @@ fun main(args: Array<String>) {
 
     if (args.size < 2 || ishelp == "--help") {
         println("usage: java SecurityTools --help:hash|sign|providers")
-
+        /*
         println("hashing: java SecurityToolsKt [-op 'hash'] [-f filename]  [-d destfilename] [-p provider] [-a algorithm] [-o] [-encode]")
         println("signing: java SecurityToolsKt  [-op 'sign'] -s [-f filename] [-d signaturefile] [-p provider] [-a algorithm]")
         println("providers: java SecurityToolsKt  [-op 'providers']  [-f filename]  [-d destfilename] [-p provider] [-a algorithm] [-o] [-encode]")
-        return
+        // return
+        */
     }
 
     if (ishelp.startsWith("--help:")) {
         val helpon = ishelp.split(":")[1]
         when (helpon) {
             // help on each part
+            "providers" -> Providers.Help().help()
         }
         return
     }
