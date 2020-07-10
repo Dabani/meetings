@@ -10,7 +10,7 @@ open class Meeting(val meetingName: String, open val location: Location, val log
     open val locationName = ""
 
     fun addParticipant(participant: Participant) {
-        logger.debug("Participant added")
+        logger.info("Participant added")
         if (verifyParticipant(participant))
             println("Added: \n name: ${participant.participantName}, email: ${participant.canonicalEmail}")
     }
