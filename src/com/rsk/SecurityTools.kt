@@ -3,6 +3,7 @@ package com.rsk
 import ConsoleOutputStrategy
 import Hash
 import Providers
+import Sign
 import com.rsk.security.*
 
 
@@ -27,6 +28,7 @@ fun main(args: Array<String>) {
             // help on each part
             "providers" -> Providers.Help().help()
             "hash" -> Hash.Help().help()
+            "sign" -> Sign.Help().help()
         }
         return
     }
@@ -64,6 +66,7 @@ fun main(args: Array<String>) {
         }
 
         "sign" -> {
+            Sign(ConsoleOutputStrategy()).run()
         }
 
         "providers" -> {

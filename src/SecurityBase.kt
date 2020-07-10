@@ -8,6 +8,11 @@ abstract class SecurityBase(protected val outputStrategy: OutputStrategy) {
     private val overwrite: Boolean by Argument.argument()
     private val encode: Boolean by Argument.argument()
 
+    protected val algorithm: String by Argument.argument()
+    protected val fileName: String by Argument.argument()
+    protected val destFileName: String by Argument.argument()
+    protected val provider: String  by Argument.argument()
+
     @Throws(IOException::class)
     fun createOutputStream(fileName: String): OutputStream {
         return if (fileName.isEmpty())
@@ -53,6 +58,11 @@ abstract class SecurityBase(protected val outputStrategy: OutputStrategy) {
             os.write(bytes)
         }
         os.flush()
+    }
+
+    @Throws(IOException::class)
+    fun readBytes(inStream: InputStream): ByteArray {
+        return inStream.readBytes()
     }
 }
 

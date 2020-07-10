@@ -1,14 +1,9 @@
 import com.rsk.security.Argument.argument
 import com.rsk.security.logger
-import java.io.*
+import java.io.InputStream
 import java.security.MessageDigest
 
 class Hash (outputStrategy: OutputStrategy) : SecurityBase(outputStrategy) {
-
-    private val algorithm: String by argument()
-    private val fileName: String by argument()
-    private val destFileName: String by argument()
-    private val provider: String  by argument()
 
     private val logger by logger()
 
@@ -42,7 +37,7 @@ class Hash (outputStrategy: OutputStrategy) : SecurityBase(outputStrategy) {
     }
 
     private fun digestData(md: MessageDigest, input: InputStream): ByteArray {
-        val bytesToHash = input.readBytes()
+        val bytesToHash : ByteArray = readBytes(input)
         md.update(bytesToHash)
         return md.digest()
     }
